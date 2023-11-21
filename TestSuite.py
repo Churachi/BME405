@@ -23,15 +23,11 @@ samplerate = 4000
 array = np.zeros(shape=(1, 1))
 
 while True:
-    # For 5s, read output of sound sensor in 100 ms intervals (0.25 ms)
-    for i in range(0,50):
-        #sound is the data needed, storing sound in array
-        sound = mcp.read_adc(1)
-        print(sound)
-        array[i] = sound
-        time.sleep(0.00025)
+    #sound is the data needed, storing sound in array
+    sound = mcp.read_adc(1)
+    print(sound)
+    array[i] = sound
 
     write("example.wav", samplerate, array.astype(np.int16))
 
-
-    #need to SSH in in order to store data on SD card
+    time.sleep(0.00025)
