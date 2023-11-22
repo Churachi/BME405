@@ -7,8 +7,8 @@ from scipy.io.wavfile import write
 
 # using physical pin 11 to blink an LED
 GPIO.setmode(GPIO.BOARD)
-chan_list = [11]
-GPIO.setup(chan_list, GPIO.OUT)
+chan_list = [10]
+GPIO.setup(chan_list, GPIO.INPUT)
 
 # Hardware SPI Configuration
 SPI_PORT = 0
