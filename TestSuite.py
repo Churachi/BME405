@@ -25,7 +25,7 @@ while True:
     print("Code is running")
     # if GPIO.input(10) == GPIO.HIGH:
         # time.sleep(500)
-        button = True
+    button = True
     
     while button == True:
         print("I am recording data")
