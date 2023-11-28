@@ -39,8 +39,24 @@ while True:
             time.sleep(0.5)
             button = False
             print("About to print")
-            f = open(f"example{fileName}.wav", "w")
-            f.write(array.astype(np.int16))
-            print("Example %s printed" %(str(fileName)))
+
+            # Open the file in binary write mode ('wb')
+            with open(f"example{fileName}.wav", "wb") as f:
+                # Convert the array to 16-bit integer before writing
+                array = array.astype(np.int16)
+                # Write the array to the file
+                f.write(array.tobytes())
+
+            print("Example %s printed" % str(fileName))
             array = np.zeros(shape=(1, 1))
             fileName = fileName + 1
+
+            #print("I am done recording data, button pressed again")
+            #time.sleep(0.5)
+            #button = False
+            #print("About to print")
+            #f = open(f"example{fileName}.wav", "w")
+            #f.write(array.astype(np.int16))
+            #print("Example %s printed" %(str(fileName)))
+            #array = np.zeros(shape=(1, 1))
+            #fileName = fileName + 1
