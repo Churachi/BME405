@@ -17,8 +17,7 @@ SPI_DEVICE = 0
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
 #Sample Rate Setup
-# samplerate = 4000
-samplerate = 2000
+samplerate = 4000
 lst = []
 button = False
 fileName = 0
