@@ -41,7 +41,7 @@ while True:
             button = False
             print("About to print")
             print(lst)
-            my_array = array.array('f', lst)
+            my_array = np.array(lst)
 
 
             # np.savetxt(f"example{fileName}.wav", lst, delimiter=',')   # X is an array
