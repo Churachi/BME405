@@ -22,14 +22,12 @@ button = False
 fileName = 0
 
 while True:
-    print("Code is running")
     if GPIO.input(10) == GPIO.HIGH:
         print("Button was pressed")
         time.sleep(0.5)
         button = True
     
     while button == True:
-        print("I am recording data")
         #sound is the data needed, storing sound in array
         sound = mcp.read_adc(1)
         print(sound)
