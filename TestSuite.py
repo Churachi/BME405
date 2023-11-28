@@ -7,8 +7,8 @@ from scipy.io.wavfile import write
 
 # using physical pin 11 to blink an LED
 GPIO.setmode(GPIO.BOARD)
-chan_list = [10]
-GPIO.setup(chan_list, GPIO.IN)
+chan_list = 10
+GPIO.setup(chan_list, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # Hardware SPI Configuration
 SPI_PORT = 0
@@ -23,9 +23,10 @@ fileName = 0
 
 while True:
     print("Code is running")
-    # if GPIO.input(10) == GPIO.HIGH:
-        # time.sleep(500)
-    button = True
+    if GPIO.input(10) == GPIO.HIGH:
+        print("Button was pressed")
+        time.sleep(0.5)
+        button = True
     
     while button == True:
         print("I am recording data")
@@ -36,8 +37,8 @@ while True:
         time.sleep(0.00025)
 
         if GPIO.input(10) == GPIO.HIGH:
-            print("I am done recording data")
-            time.sleep(0.1)
+            print("I am done recording data, button pressed again")
+            time.sleep(0.5)
             button = False
             print("About to print")
             write(f"example{fileName}.wav", samplerate, array.astype(np.int16))
