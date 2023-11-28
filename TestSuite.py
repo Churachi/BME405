@@ -22,6 +22,7 @@ button = False
 fileName = 0
 
 while True:
+    print("Code is running")
     if GPIO.input(10) == GPIO.HIGH:
         time.sleep(500)
         button = True
