@@ -32,7 +32,7 @@ while True:
         #sound is the data needed, storing sound in array
         sound = mcp.read_adc(1)
         print(sound)
-        array.append(sound)
+        np.append(array, sound)
         time.sleep(0.00025)
 
         if GPIO.input(10) == GPIO.HIGH:
