@@ -24,7 +24,7 @@ fileName = 0
 while True:
     if GPIO.input(10) == GPIO.HIGH:
         print("Button was pressed")
-        time.sleep(0.5)
+        time.sleep(1)
         button = True
     
     while button == True:
@@ -36,10 +36,10 @@ while True:
 
         if GPIO.input(10) == GPIO.HIGH:
             print("I am done recording data, button pressed again")
-            time.sleep(0.5)
+            time.sleep(1)
             button = False
             print("About to print")
-
+            
             # Open the file in binary write mode ('wb')
             with open(f"example{fileName}.wav", "wb") as f:
                 # Convert the array to 16-bit integer before writing
