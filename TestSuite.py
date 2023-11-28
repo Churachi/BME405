@@ -40,7 +40,7 @@ while True:
             time.sleep(0.1)
             button = False
             print("About to print")
-            write("example{fileName}.wav", samplerate, array.astype(np.int16))
+            write(f"example{fileName}.wav", samplerate, array.astype(np.int16))
             print("Example %s printed" %(str(fileName)))
             array = np.zeros(shape=(1, 1))
             fileName = fileName + 1
