@@ -39,6 +39,7 @@ while True:
             print("I am done recording data")
             time.sleep(500)
             button = False
+            print("About to print")
             write("example{fileName}.wav", samplerate, array.astype(np.int16))
             print("Example %s printed" %(str(fileName)))
             array = np.zeros(shape=(1, 1))
