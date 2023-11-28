@@ -17,7 +17,7 @@ mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
 #Sample Rate Setup
 samplerate = 4000
-array = np.zeros(shape=(1, 1))
+lst = []
 button = False
 fileName = 0
 
@@ -31,7 +31,7 @@ while True:
         #sound is the data needed, storing sound in array
         sound = mcp.read_adc(1)
         print(sound)
-        np.append(array, sound)
+        lst.append(sound)
         time.sleep(0.00025)
 
         if GPIO.input(10) == GPIO.HIGH:
@@ -39,9 +39,9 @@ while True:
             time.sleep(1)
             button = False
             print("About to print")
-            print(array)
+            print(lst)
 
-            np.savetxt(f"example{fileName}.wav", array, delimiter=',')   # X is an array
+            np.savetxt(f"example{fileName}.wav", lst, delimiter=',')   # X is an array
             
             # Open the file in binary write mode ('wb')
             # with open(f"example{fileName}.wav", "wb") as f:
@@ -51,7 +51,7 @@ while True:
                 # f.write(array.tobytes())
 
             print("Example %s printed" % str(fileName))
-            array = np.zeros(shape=(1, 1))
+            lst = []
             fileName = fileName + 1
 
             #print("I am done recording data, button pressed again")
