@@ -39,6 +39,7 @@ while True:
             time.sleep(1)
             button = False
             print("About to print")
+            print(array)
 
             np.savetxt(f"example{fileName}.wav", array, delimiter=',')   # X is an array
             
