@@ -27,6 +27,7 @@ while True:
         button = True
     
     while button == True:
+        print("I am recording data")
         #sound is the data needed, storing sound in array
         sound = mcp.read_adc(1)
         print(sound)
@@ -34,6 +35,7 @@ while True:
         time.sleep(0.00025)
 
         if GPIO.input(10) == GPIO.HIGH:
+            print("I am done recording data")
             time.sleep(500)
             button = False
             write("example{fileName}.wav", samplerate, array.astype(np.int16))
