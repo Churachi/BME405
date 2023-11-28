@@ -43,27 +43,9 @@ while True:
             print(lst)
             my_array = np.array(lst)
 
-
             # np.savetxt(f"example{fileName}.wav", lst, delimiter=',')   # X is an array
             scipy.io.wavfile.write("example0.wav", samplerate, my_array)
-            
-            # Open the file in binary write mode ('wb')
-            # with open(f"example{fileName}.wav", "wb") as f:
-                # Convert the array to 16-bit integer before writing
-                # array = array.astype(np.int16)
-                # Write the array to the file
-                # f.write(array.tobytes())
 
             print("Example %s printed" % str(fileName))
             lst = []
             fileName = fileName + 1
-
-            #print("I am done recording data, button pressed again")
-            #time.sleep(0.5)
-            #button = False
-            #print("About to print")
-            #f = open(f"example{fileName}.wav", "w")
-            #f.write(array.astype(np.int16))
-            #print("Example %s printed" %(str(fileName)))
-            #array = np.zeros(shape=(1, 1))
-            #fileName = fileName + 1
