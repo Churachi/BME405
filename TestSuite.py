@@ -37,7 +37,7 @@ while True:
 
         if GPIO.input(10) == GPIO.HIGH:
             print("I am done recording data")
-            time.sleep(500)
+            time.sleep(0.1)
             button = False
             print("About to print")
             write("example{fileName}.wav", samplerate, array.astype(np.int16))
