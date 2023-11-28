@@ -39,13 +39,15 @@ while True:
             time.sleep(1)
             button = False
             print("About to print")
+
+            np.savetxt(f"example{fileName}.wav", array, delimiter=',')   # X is an array
             
             # Open the file in binary write mode ('wb')
-            with open(f"example{fileName}.wav", "wb") as f:
+            # with open(f"example{fileName}.wav", "wb") as f:
                 # Convert the array to 16-bit integer before writing
-                array = array.astype(np.int16)
+                # array = array.astype(np.int16)
                 # Write the array to the file
-                f.write(array.tobytes())
+                # f.write(array.tobytes())
 
             print("Example %s printed" % str(fileName))
             array = np.zeros(shape=(1, 1))
