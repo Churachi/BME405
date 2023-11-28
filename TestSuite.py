@@ -3,7 +3,7 @@ import time
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
 import numpy as np
-from scipy.io.wavfile import write
+import scipy.io.wavfile
 
 # using physical pin 11 to blink an LED
 GPIO.setmode(GPIO.BOARD)
@@ -41,7 +41,8 @@ while True:
             print("About to print")
             print(lst)
 
-            np.savetxt(f"example{fileName}.wav", lst, delimiter=',')   # X is an array
+            # np.savetxt(f"example{fileName}.wav", lst, delimiter=',')   # X is an array
+            scipy.io.wavfile.write("example0.wav", samplerate, lst)
             
             # Open the file in binary write mode ('wb')
             # with open(f"example{fileName}.wav", "wb") as f:
