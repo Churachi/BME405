@@ -24,23 +24,20 @@ fileName = 0
 
 while True:
     if GPIO.input(10) == GPIO.HIGH:
-        print("Button was pressed")
+        print("Recording: Start")
         time.sleep(1)
         button = True
     
     while button == True:
         #sound is the data needed, storing sound in array
         sound = mcp.read_adc(1)
-        print(sound)
         lst.append(sound)
         time.sleep(0.00025)
 
         if GPIO.input(10) == GPIO.HIGH:
-            print("I am done recording data, button pressed again")
+            print("Recording: End")
             time.sleep(1)
             button = False
-            print("About to print")
-            print(lst)
             my_array = np.array(lst)
 
             # np.savetxt(f"example{fileName}.wav", lst, delimiter=',')   # X is an array
